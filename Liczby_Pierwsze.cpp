@@ -1,0 +1,35 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+bool is_prime(int num) {
+    if (num <= 1) return false;
+    if (num <= 3) return true;
+
+    if (num % 2 == 0 || num % 3 == 0) return false;
+
+    for (int i = 5; i * i <= num; i += 6) {
+        if (num % i == 0 || num % (i + 2) == 0)
+            return false;
+    }
+
+    return true;
+}
+
+int main() {
+    int n;
+    cin >> n; 
+
+    while (n--) {
+        int num;
+        cin >> num; 
+
+        if (is_prime(num))
+            cout << "TAK" << endl;
+        else
+            cout << "NIE" << endl;
+    }
+
+    return 0;
+}
